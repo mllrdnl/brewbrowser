@@ -10,6 +10,7 @@ import Col from 'react-bootstrap/Col';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro'; 
 
+
 function App() {
   return (
       <div className="App">
@@ -28,6 +29,11 @@ function App() {
             </Col>
           </Navbar>
       
+      </Row>
+      <Row>
+        <div className="beerfridge">
+          <img src={require('./images/beerfridge.PNG')} />
+        </div>
       </Row>
     </Container>
   </div>

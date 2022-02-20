@@ -39,3 +39,10 @@
     transform: rotate(360deg);
   }
 }
+
+.beerfridge {
+  height: 400px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+}
