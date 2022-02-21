@@ -20,7 +20,7 @@ function Header(props) {
 
     return(
         <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
+            <img src={require('../images/BeerFridgeGraphic.png')} className="App-logo" alt="logo" />
             <button onClick={logMeOut}> 
                 Logout
             </button>
