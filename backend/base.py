@@ -1,13 +1,16 @@
 import json
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, Blueprint
 from datetime import datetime, timedelta, timezone
 from flask_jwt_extended import create_access_token,get_jwt,get_jwt_identity, \
                                unset_jwt_cookies, jwt_required, JWTManager
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 
 
 
 api = Flask(__name__)
+
+api = Blueprint('api', __name__)
+CORS(api)
 
 
 api.config["JWT_SECRET_KEY"] = "please-remember-to-change-me"
@@ -58,7 +61,15 @@ def my_profile():
     }
 
 
-# @api.route('/allbeers', methods=['GET'])
-# def get_all_beers():
+@api.route('/allbeers', methods=['GET'])
+@cross_origin(origins=['http://localhost:3000'])
+def get_all_beers():
+    r = request.get(f'https://api.catalog.beer/beer')
+    headers = request.headers
+    auth = headers.get("username")
+    if auth == '51c83a47-8109-4a12-9d27-435205a13d83':
+        return jsonify({"message": "OK: authorized"}), 200
+    else:
+        return jsonify({"message": "ERROR: Unauthorized"}), 401
     
-#     }
+    

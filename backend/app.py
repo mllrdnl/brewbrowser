@@ -30,3 +30,5 @@ MIGRATE = Migrate(app, db)
 db.init_app(app)
 
 setup_admin(app)
+
+app.register_blueprint(api, url_prefix='/api')

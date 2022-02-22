@@ -8,13 +8,12 @@ export const AllBeers = () => {
   function getAllBeerList() {
     axios({
       method: "GET",
-      url:"https://api.catalog.beer/beer",
+      url:process.env.BACKEND_URL + "../api/allbeers",
       auth: {
           username: '51c83a47-8109-4a12-9d27-435205a13d83'
       },
       headers: {
         'content-type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
       }
     })
     .then((response) => {
