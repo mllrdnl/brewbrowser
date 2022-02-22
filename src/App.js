@@ -4,6 +4,7 @@ import Profile from './components/Profile';
 import Header from './components/Header';
 import useToken from './components/useToken';
 import { MyNavBar } from './components/MyNavBar';
+import { AllBeers } from './components/AllBeers';
 
 import logo from './logo.svg';
 import './App.css';
@@ -53,6 +54,8 @@ function App() {
             </Routes>
           </>
         )}
+
+    <AllBeers/>
     
   </div>
   </BrowserRouter>
