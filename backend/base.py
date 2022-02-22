@@ -3,9 +3,12 @@ from flask import Flask, request, jsonify
 from datetime import datetime, timedelta, timezone
 from flask_jwt_extended import create_access_token,get_jwt,get_jwt_identity, \
                                unset_jwt_cookies, jwt_required, JWTManager
+from flask_cors import CORS
+
 
 
 api = Flask(__name__)
+
 
 api.config["JWT_SECRET_KEY"] = "please-remember-to-change-me"
 api.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=2)
@@ -54,4 +57,8 @@ def my_profile():
         "about" :"Hello! I'm a full stack developer that loves python and javascript"
     }
 
-    return response_body
+
+# @api.route('/allbeers', methods=['GET'])
+# def get_all_beers():
+    
+#     }
