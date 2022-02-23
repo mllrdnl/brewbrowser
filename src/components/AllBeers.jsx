@@ -6,15 +6,26 @@ export const AllBeers = () => {
 
   const [allBeerList, setAllBeerList] = useState(null)
   function getAllBeerList() {
+    // axios.get('https://api.catalog.beer/beer', {
+    //     headers: {
+    //         'Access-Control-Allow-Origin': '*',
+    //         'Access-Control-Allow-Headers': 'Content-Type, Authorization',  
+    //     },
+    //     proxy: {
+    //         host: '10.0.0.74',
+    //         port: 3000
+    //     }
+    // })
     axios({
       method: "GET",
-      url:process.env.BACKEND_URL + "../api/allbeers",
-      auth: {
-          username: '51c83a47-8109-4a12-9d27-435205a13d83'
-      },
-      headers: {
-        'content-type': 'application/json',
-      }
+      url:"/allbeers",
+     
+    //   headers: {
+    //     'content-type': 'application/json',
+    //     'Access-Control-Allow-Origin': '*',
+        
+    //   },
+
     })
     .then((response) => {
       const res =response.data
