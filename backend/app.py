@@ -10,11 +10,11 @@ from flask_jwt_extended import JWTManager
 from utils import APIException, generate_sitemap
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*":{"origins":"*"}})
+CORS(app, resources={r"/api/*":{"origins":"http://127.0.0.1:5000/"}})
 app.config['CORS_HEADERS'] = "Content-Type"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
 
-# cors = CORS(app, resources={r'/api/*': {'origins': 'http://localhost:3000'}})
+cors = CORS(app, resources={r'/api/*': {'origins': '*'}})
 
 db = SQLAlchemy(app)
 
@@ -37,3 +37,6 @@ setup_admin(app)
 # if __name__ == '__main__':
 #     PORT = int(os.environ.get('PORT', 3001))
 #     app.run(host='0.0.0.0', port=PORT, debug=True)
+
+if __name__ == '__main__':
+    app.run(debug=True)

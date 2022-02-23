@@ -51,11 +51,13 @@ function App() {
           <>
             <Routes>
               <Route exact path="/profile" element={<Profile token={token} setToken={setToken}/>}></Route>
+              <Route exact path="/allbeers" element={<AllBeers/>}></Route>
             </Routes>
+            
           </>
         )}
 
-    <AllBeers/>
+    {/* <AllBeers/> */}
     
   </div>
   </BrowserRouter>
